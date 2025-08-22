@@ -1,67 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My AI Chatbot</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My AI Assistant</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-      color: white;
-    }
-    header {
-      padding: 1rem;
-      text-align: center;
-      background: rgba(0, 0, 0, 0.5);
-    }
-    main {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-    }
-    .chat-container {
-      width: 100%;
-      max-width: 900px;
-      height: 600px;
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
   </style>
 </head>
-<body>
-  <header>
-    <h1>🤖 My AI Chatbot</h1>
-    <p>Ask me anything!</p>
-  </header>
+<body class="text-white flex flex-col min-h-screen">
 
-  <main>
-    <div class="chat-container">
+  <!-- Navbar -->
+  <nav class="bg-black bg-opacity-40 backdrop-blur-lg p-4 flex justify-between items-center shadow-lg">
+    <h1 class="text-2xl font-bold">🤖 My AI Assistant</h1>
+    <a href="#chatbot" class="px-4 py-2 bg-white text-black rounded-lg hover:bg-gray-200 transition">
+      Start Chat
+    </a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="flex flex-1 flex-col items-center justify-center text-center px-6">
+    <h2 class="text-5xl font-extrabold mb-4">Your Personal AI Chatbot</h2>
+    <p class="text-lg text-gray-200 max-w-2xl mb-6">
+      Ask me anything! I can answer your questions, summarize content, and assist with your tasks — powered by Flowise AI.
+    </p>
+    <a href="#chatbot" class="px-6 py-3 bg-yellow-400 text-black text-lg font-semibold rounded-full hover:bg-yellow-300 transition">
+      Chat with Me
+    </a>
+  </section>
+
+  <!-- Chatbot Section -->
+  <section id="chatbot" class="bg-white text-black rounded-t-3xl p-6 shadow-2xl">
+    <h3 class="text-2xl font-bold text-center mb-4">💬 Talk to AI</h3>
+    <div class="w-full h-[600px] border rounded-xl overflow-hidden shadow-lg">
       <flowise-fullchatbot style="width:100%; height:100%;"></flowise-fullchatbot>
     </div>
-  </main>
+  </section>
 
-  <footer style="text-align:center; padding:1rem; background:rgba(0,0,0,0.4);">
+  <!-- Footer -->
+  <footer class="bg-black bg-opacity-50 text-center p-4 mt-auto">
     <p>Made with ❤️ using Flowise AI</p>
   </footer>
 
-  <script type="module">
+  <!-- Flowise Script -->
+  flowise-fullchatbot></flowise-fullchatbot>
+<script type="module">
     import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
     Chatbot.initFull({
-      chatflowid: "e38dcabf-5531-4bb1-8b0b-c3ba9e4c9978", 
-      apiHost: "https://cloud.flowiseai.com"
+        chatflowid: "e38dcabf-5531-4bb1-8b0b-c3ba9e4c9978",
+        apiHost: "https://cloud.flowiseai.com",
+   
+
+      theme: {
+        button: { backgroundColor: "#FFD700", right: 20, bottom: 20, size: "large", iconColor: "black" },
+        chatWindow: { welcomeMessage: "👋 Hi, I'm your AI Assistant. How can I help today?" }
+      }
     })
   </script>
 </body>
 </html>
-
-<
-
