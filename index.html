@@ -12,21 +12,65 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      scroll-behavior: smooth; /* enables smooth scrolling */
     }
   </style>
 </head>
 <body class="text-white">
 
   <!-- Navbar -->
-  <nav class="bg-black bg-opacity-40 backdrop-blur-lg p-4 flex justify-between items-center shadow-md">
+  <nav class="bg-black bg-opacity-40 backdrop-blur-lg p-4 flex justify-between items-center shadow-md fixed w-full z-10">
     <h1 class="text-2xl font-bold">🤖 My AI Assistant</h1>
-    <a href="#chatbot" class="px-4 py-2 bg-white text-black rounded-lg hover:bg-gray-200 transition">
+    <button onclick="document.getElementById('chatbot').scrollIntoView({behavior: 'smooth'})" 
+      class="px-4 py-2 bg-white text-black rounded-lg hover:bg-gray-200 transition">
       Start Chat
-    </a>
+    </button>
   </nav>
 
   <!-- Hero Section -->
-  <section class="flex flex-col flex-1 items-center justify-center text-center px-6">
+  <section class="flex flex-col flex-1 items-center justify-center text-center px-6 pt-32">
     <h2 class="text-5xl font-extrabold mb-4 drop-shadow-lg">Your Personal AI Chatbot</h2>
     <p class="text-lg text-gray-200 max-w-2xl mb-6">
-      Ask me anything! I can answer your questions, summarize content, and assist with your tasks — powered
+      Ask me anything! I can answer your questions, summarize content, and assist with your tasks — powered by Flowise AI.
+    </p>
+    <button onclick="document.getElementById('chatbot').scrollIntoView({behavior: 'smooth'})" 
+      class="px-6 py-3 bg-yellow-400 text-black text-lg font-semibold rounded-full hover:bg-yellow-300 transition">
+      Try It Now
+    </button>
+  </section>
+
+  <!-- Chatbot Section -->
+  <section id="chatbot" class="bg-white text-black rounded-t-3xl p-6 shadow-2xl">
+    <h3 class="text-2xl font-bold text-center mb-4">💬 Talk to AI</h3>
+    <div class="w-full h-[600px] border rounded-xl overflow-hidden shadow-lg">
+      <flowise-fullchatbot style="width:100%; height:100%;"></flowise-fullchatbot>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black bg-opacity-50 text-center p-4">
+    <p>Made with ❤️ using Flowise AI</p>
+  </footer>
+
+  <!-- Flowise Script -->
+  <script type="module">
+    import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+    Chatbot.initFull({
+      chatflowid: "e38dcabf-5531-4bb1-8b0b-c3ba9e4c9978",  // your Chatflow ID
+      apiHost: "https://cloud.flowiseai.com",               // Flowise host
+      theme: {
+        chatWindow: {
+          welcomeMessage: "👋 Hi, I'm your AI Assistant. How can I help you today?",
+          backgroundColor: "#f9fafb",
+          textColor: "#111827",
+        },
+        button: {
+          backgroundColor: "#FFD700",
+          iconColor: "black",
+        }
+      }
+    })
+  </script>
+
+</body>
+</html>
