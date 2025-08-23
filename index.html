@@ -3,44 +3,150 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JK Student Helper Chatbot</title>
+  <title>JK Student Study Helper ChatBot</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #667eea, #764ba2);
       font-family: Arial, sans-serif;
-      height: 100vh;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+    }
+    section {
+      min-height: 100vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+      text-align: center;
+      padding: 40px;
+    }
+    /* About Section with Animated Border */
+    .about {
+      position: relative;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 800px;
+      box-shadow: 0px 4px 25px rgba(0,0,0,0.4);
+      animation: fadeIn 1.5s ease-in-out;
+      overflow: hidden;
+    }
+
+    /* Gradient Border Animation */
+    .about::before {
+      content: "";
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      background: linear-gradient(45deg, #ff6ec4, #7873f5, #4facfe, #43e97b);
+      border-radius: 23px;
+      z-index: -1;
+      background-size: 400% 400%;
+      animation: gradientMove 8s linear infinite;
+    }
+
+    /* Hover Glow */
+    .about:hover {
+      transform: scale(1.02);
+      box-shadow: 0px 6px 30px rgba(255, 255, 255, 0.4);
+      transition: all 0.4s ease;
+    }
+
+    /* Keyframes */
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    header, footer {
+      text-align: center;
+      padding: 15px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.3);
+      width: 100%;
+    }
+    header {
+      font-size: 24px;
+    }
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100;
+      text-align: centre;
+      font-size: 14px;
     }
     iframe {
       width: 90%;
-      height: 90vh;
+      height: 75vh;
       border: none;
       border-radius: 15px;
       box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
-     }
+      margin: 20px 0;
+    }
 
-    footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-}
-    
+    .contact p {
+      margin: 8px 0;
+    }
+    .contact a {
+      color: #ffd700;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .contact a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
-  <iframe
-    src="https://udify.app/chatbot/N7ZwLZFKvppgnltZ"
-    allow="microphone">
-  </iframe>
 
-  <footer>
-     💖 Made By <strong>JK</strong>
-  </footer>
+  <!-- First Section: About -->
+  <section>
+    <div class="about">
+      <h1>Welcome to My Project 🚀</h1>
+      <p>
+        Hi, I'm <strong>Jaswanth Kumar</strong>. <br>
+        This is my <em>Student Study Helper</em> project.Built without No Code.  
+      </p>
+      <p>
+       For this Project I used Dify Source and Groq Chat API Keys.
+       I Learned Now How to Build AI Agent with No Code
+      </p>
+      <p>⬇️ Scroll down to try the chatbot ⬇️</p>
+    </div>
+  </section>
+
+  <!-- Second Section: Chatbot -->
+  <section>
+    <header>
+      Student Study Helper
+    </header>
+
+    <iframe
+      src="https://udify.app/chatbot/N7ZwLZFKvppgnltZ"
+      allow="microphone">
+    </iframe>
+
+    <footer>
+       💖Made By <strong>JK</strong>
+    </footer>
+  </section>
+
+   <section>
+    <div class="contact">
+      <h2>📬 Contact Me</h2>
+     
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/jaswanth-kumar-kamireddi-86ba09373/" target="_blank">linkedin.com/in/jaswanth-kumar-kamireddi</a></p>
+     
+      <p>Instagram: <a href="https://www.instagram.com/kjk._.06" target="_blank">instagram.com/kjk._.06</a></p>
+    </div>
+  </section>
+
 </body>
 </html>
-
